@@ -1,0 +1,24 @@
+/* ==========================================================================
+   خدمات جاویدان سرویس — css/effects.css : ظاهر شدن هنگام اسکرول و حرکت‌های نرم
+   ========================================================================== */
+@keyframes morph { to { border-radius: 58% 42% 45% 55% / 42% 58% 42% 58%; } }
+@keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+
+.js [data-reveal] { opacity: 0; transition: opacity .8s var(--ease), translate .8s var(--ease), scale .8s var(--ease); transition-delay: var(--d, 0s); }
+.js [data-reveal="up"] { translate: 0 26px; } .js [data-reveal="down"] { translate: 0 -20px; }
+.js [data-reveal="right"] { translate: 30px 0; } .js [data-reveal="left"] { translate: -30px 0; }
+.js [data-reveal="zoom"] { scale: .9; }
+.js [data-reveal].in { opacity: 1; translate: 0 0; scale: 1; }
+
+/* عنوان هیرو: کلمه‌به‌کلمه */
+.sw { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.sw > span { display: inline-block; }
+.split-init .sw > span { translate: 0 110%; }
+.split-go .sw > span { translate: 0 0; transition: translate .8s var(--ease); transition-delay: calc(var(--i, 0) * .09s); }
+
+.no-motion *, .no-motion *::before, .no-motion *::after { animation: none !important; }
+.no-motion [data-reveal] { opacity: 1 !important; translate: none !important; scale: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  .js [data-reveal] { opacity: 1; translate: none; scale: none; }
+}

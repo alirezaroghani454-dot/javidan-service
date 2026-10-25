@@ -1,0 +1,74 @@
+/* ==========================================================================
+   خدمات جاویدان سرویس — css/components.css : دکمه، فرم، تب، نتیجه‌ی استعلام، اعلان
+   ========================================================================== */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .65rem 1.4rem; border: 0; border-radius: var(--radius-pill); font-weight: 700; font-size: 1rem; line-height: 1.6; transition: transform .25s var(--ease), box-shadow .25s, background .25s; white-space: nowrap; }
+.btn:hover { transform: translateY(-3px); }
+.btn:disabled { opacity: .6; pointer-events: none; }
+.btn-main { background: var(--grad-main); color: #fff; box-shadow: var(--shadow); }
+.btn-main:hover { box-shadow: var(--shadow-lg); }
+.btn-wa { background: var(--wa); color: #fff; box-shadow: 0 14px 30px -14px rgba(22, 163, 74, .6); }
+.btn-outline { background: #fff; color: var(--teal-d); border: 2px solid var(--line-strong); }
+.btn-outline:hover { background: var(--tint); }
+.btn-ghost { background: var(--tint); color: var(--teal-d); }
+.btn-lg { padding: .85rem 1.9rem; font-size: 1.12rem; }
+.btn-sm { padding: .4rem 1.1rem; font-size: .95rem; }
+.btn-block { width: 100%; }
+.btn .ic { width: 1.2em; height: 1.2em; }
+.btn.is-busy { position: relative; }
+
+.icon-btn { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; color: var(--teal-d); }
+.icon-btn:hover { background: var(--tint); }
+
+/* ----- فرم ----- */
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem 1.2rem; }
+.field { display: flex; flex-direction: column; gap: .35rem; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-weight: 700; font-size: .97rem; color: var(--ink); }
+.req { color: var(--coral); margin-inline-start: .2rem; }
+.input, .select, .textarea { width: 100%; padding: .7rem 1rem; border: 1.8px solid var(--line); border-radius: 14px; background: #fff; color: var(--ink); line-height: 1.7; transition: border-color .2s, box-shadow .2s; }
+.textarea { min-height: 120px; resize: vertical; }
+.input::placeholder, .textarea::placeholder { color: #8aa3ab; }
+.input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(20, 184, 166, .18); }
+.err { display: none; color: var(--bad); font-size: .87rem; font-weight: 500; }
+.field.invalid .input, .field.invalid .select, .field.invalid .textarea { border-color: var(--bad); }
+.field.invalid .err { display: block; }
+.hp-field { position: absolute !important; inset-inline-start: -9999px; opacity: 0; height: 0; width: 0; }
+.form-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.form-note { color: var(--muted); font-size: .88rem; }
+.form-ok, .success-box { background: #ecfdf5; border: 1.5px solid #86efac; color: #14532d; padding: 1.2rem 1.4rem; border-radius: var(--radius-sm); }
+.code-box { display: inline-block; direction: ltr; margin: .5rem 0; padding: .3rem 1.2rem; background: #fff; border: 2px dashed var(--teal); border-radius: 12px; font-weight: 800; font-size: 1.3rem; letter-spacing: 1.5px; color: var(--teal-d); }
+.demo-hint { margin-top: .8rem; }
+.demo-hint button { background: none; border: 0; color: var(--sky); font-weight: 700; }
+
+/* ----- تب‌ها ----- */
+.tabs { display: flex; gap: .4rem; padding: .35rem; background: var(--tint); border-radius: var(--radius-pill); margin-bottom: 1.3rem; }
+.tab { flex: 1; padding: .5rem 1rem; border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--muted); font-weight: 700; transition: .25s; }
+.tab.active { background: #fff; color: var(--teal-d); box-shadow: var(--shadow-sm); }
+
+/* ----- نتیجه‌ی استعلام ----- */
+.inq-result { margin-top: 1.2rem; }
+.res-card { background: var(--sky-50); border: 1.5px solid #bae6fd; border-radius: var(--radius-sm); padding: 1.3rem; animation: pop .5s var(--ease); }
+.res-head { display: flex; justify-content: space-between; align-items: center; gap: .8rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.res-head h4 { font-size: 1.05rem; }
+.res-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem 1rem; }
+.res-grid small { display: block; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.res-grid b { font-weight: 700; color: var(--ink); }
+.res-note, .res-empty { margin-top: .9rem; color: var(--muted); font-size: .92rem; }
+.res-empty { padding: 1rem; background: #fff7ed; border-radius: 12px; color: #9a3412; }
+.status { display: inline-block; padding: .1rem .9rem; border-radius: var(--radius-pill); font-size: .85rem; font-weight: 700; }
+.status-ok { background: #dcfce7; color: #166534; } .status-bad { background: #ffe4e6; color: #9f1239; }
+.status-warn { background: #fef3c7; color: #92400e; } .status-info { background: #e0f2fe; color: #075985; }
+.meter { height: 12px; background: #dbeafe; border-radius: 99px; overflow: hidden; margin-top: 1.1rem; }
+.meter i { display: block; height: 100%; width: var(--w, 0%); background: var(--grad-main); border-radius: 99px; transition: width 1.2s var(--ease); }
+.meter-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); margin-top: .3rem; }
+.track-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: .4rem; margin-top: 1.2rem; text-align: center; font-size: .82rem; color: var(--muted); }
+.track-steps i { display: block; width: 18px; height: 18px; margin: 0 auto .3rem; border-radius: 50%; background: #cbd5e1; }
+.track-steps .on { color: var(--teal-d); font-weight: 700; }
+.track-steps .on i { background: var(--teal); box-shadow: 0 0 0 5px rgba(20, 184, 166, .2); }
+
+/* ----- اعلان ----- */
+.toast-wrap { position: fixed; z-index: 300; inset-inline: 0; bottom: 90px; display: flex; flex-direction: column; align-items: center; gap: .5rem; pointer-events: none; }
+.toast { background: var(--ink); color: #fff; padding: .6rem 1.4rem; border-radius: var(--radius-pill); box-shadow: var(--shadow-lg); font-size: .95rem; opacity: 0; transform: translateY(14px); transition: .4s var(--ease); }
+.toast.show { opacity: 1; transform: none; }
+.toast-error { background: var(--bad); } .toast-ok { background: var(--teal-d); }
+@keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
